@@ -17,7 +17,10 @@ jobs:
     name: Build
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout to the repository
+        uses: actions/checkout@v4
+
+      - name: Run the script
         run: |
           chmod +x *.sh
           ./start.sh
