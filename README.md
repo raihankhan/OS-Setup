@@ -7,3 +7,4 @@ make the script files executable by sudo user. then simply run the script.
 ```bash
 chmod +x *.sh && ./start.sh
 ```
+
