@@ -16,10 +16,9 @@ wget https://download-cdn.jetbrains.com/go/goland-2024.1.4.tar.gz
 
 tar -xzf goland-2024.1.4.tar.gz
 
-cd goland-2024.1.4/bin || exit
-chmod +x goland.sh
+cd GoLand-2024.1.4/bin || exit
 ./goland.sh
 
 cd ../../
 rm goland-*.tar.gz
-rm -rf ./goland-2024.1.4
+rm -rf ./GoLand-2024.1.4

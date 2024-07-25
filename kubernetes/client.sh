@@ -15,3 +15,12 @@
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
+
+sudo apt-get install bash-completion
+source /usr/share/bash-completion/bash_completion
+
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+echo 'kubectl completion fish | source' >>~/.config/fish/config.fish
+
+source ~/.bashrc
+source ~/.config/fish/config.fish

@@ -29,5 +29,5 @@ if ! grep -q 'export GOPATH=$HOME/go' ~/.bashrc && ! grep -q 'export PATH=$GOPAT
 fi
 
 source ~/.bashrc
-go version
+go version || exit
 

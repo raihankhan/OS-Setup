@@ -32,3 +32,6 @@ sudo apt-get install -y ubuntu-restricted-extras \
 ./docker.sh
 ./golang/cli.sh
 ./golang/ide.sh
+./kubernetes/server.sh
+./kubernetes/client.sh
+./kubernetes/plugins.sh
