@@ -25,7 +25,7 @@ jobs:
 
       - name: Check License
         run: |
-          make check-license 
+          make check-license
 
       - name: Run script
         run: |
