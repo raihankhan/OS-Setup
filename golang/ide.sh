@@ -1,4 +1,3 @@
-#!/bin/bash
 # Copyright 2024 Raihan Khan
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,25 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+wget https://download-cdn.jetbrains.com/go/goland-2024.1.4.tar.gz
 
-set -eo pipefail
-set -x
+tar -xzf goland-2024.1.4.tar.gz
 
-sudo apt-get update && sudo apt-get upgrade -y
+cd GoLand-2024.1.4/bin || exit
+./goland.sh
 
-sudo apt-get install curl wget vim git -y
-
-sudo apt-get install -y ubuntu-restricted-extras \
- software-properties-common apt-transport-https ca-certificates \
- linux-tools-common linux-tools-generic linux-tools-$(uname -r) \
- build-essential automake \
- terminator fish curl tree rlwrap gnome-tweaks httpie graphviz \
- python-dev-is-python3 python3-pip
-
-./cloudflare-warp-client.sh
-./docker.sh
-./golang/cli.sh
-./golang/ide.sh
-./kubernetes/server.sh
-./kubernetes/client.sh
-./kubernetes/plugins.sh
+cd ../../
+rm goland-*.tar.gz
+rm -rf ./GoLand-2024.1.4
