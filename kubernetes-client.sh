@@ -1,4 +1,3 @@
-#!/bin/bash
 # Copyright 2024 Raihan Khan
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,22 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-set -eo pipefail
-set -x
-
-sudo apt-get update && sudo apt-get upgrade -y
-
-sudo apt-get install curl wget vim git -y
-
-sudo apt-get install -y ubuntu-restricted-extras \
- software-properties-common apt-transport-https ca-certificates \
- linux-tools-common linux-tools-generic linux-tools-$(uname -r) \
- build-essential automake \
- terminator fish curl tree rlwrap gnome-tweaks httpie graphviz \
- python-dev-is-python3 python3-pip
-
-./cloudflare-warp-client.sh
-./docker.sh
-./golang/cli.sh
-./golang/ide.sh
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl

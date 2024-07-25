@@ -14,21 +14,20 @@
 # limitations under the License.
 
 
-set -eo pipefail
-set -x
+go_version=1.22.5
+wget https://go.dev/dl/go${go_version}.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go${go_version}.linux-amd64.tar.gz
+sudo chown -R $(id -u):$(id -g) /usr/local/go
+rm go${go_version}.linux-amd64.tar.gz
 
-sudo apt-get update && sudo apt-get upgrade -y
 
-sudo apt-get install curl wget vim git -y
+mkdir $HOME/go
+# Check if the lines already exist in .bashrc
+if ! grep -q 'export GOPATH=$HOME/go' ~/.bashrc && ! grep -q 'export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH' ~/.bashrc; then
+  echo "export GOPATH=$HOME/go" >> ~/.bashrc
+  echo "export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH" >> ~/.bashrc
+fi
 
-sudo apt-get install -y ubuntu-restricted-extras \
- software-properties-common apt-transport-https ca-certificates \
- linux-tools-common linux-tools-generic linux-tools-$(uname -r) \
- build-essential automake \
- terminator fish curl tree rlwrap gnome-tweaks httpie graphviz \
- python-dev-is-python3 python3-pip
+source ~/.bashrc
+go version
 
-./cloudflare-warp-client.sh
-./docker.sh
-./golang/cli.sh
-./golang/ide.sh
