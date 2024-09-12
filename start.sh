@@ -35,3 +35,4 @@ sudo apt-get install -y ubuntu-restricted-extras \
 ./kubernetes/server.sh
 ./kubernetes/client.sh
 ./kubernetes/plugins.sh
+./kubernetes/kubebuilder.sh

@@ -20,7 +20,7 @@ sudo apt-get install bash-completion
 source /usr/share/bash-completion/bash_completion
 
 echo 'source <(kubectl completion bash)' >>~/.bashrc
-echo 'kubectl completion fish | source' >>~/.config/fish/config.fish
+echo 'kubectl completion fish | source' >>/etc/fish/config.fish
 
 source ~/.bashrc
-source ~/.config/fish/config.fish
+source /etc/fish/config.fish

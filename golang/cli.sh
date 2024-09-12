@@ -14,14 +14,16 @@
 # limitations under the License.
 
 
-go_version=1.22.5
+go_version=1.23.1
 wget https://go.dev/dl/go${go_version}.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go${go_version}.linux-amd64.tar.gz
 sudo chown -R $(id -u):$(id -g) /usr/local/go
 rm go${go_version}.linux-amd64.tar.gz
 
+if [[ ! -d "$HOME/go" ]]; then
+    mkdir $HOME/go
+fi
 
-mkdir $HOME/go
 # Check if the lines already exist in .bashrc
 if ! grep -q 'export GOPATH=$HOME/go' ~/.bashrc && ! grep -q 'export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH' ~/.bashrc; then
   echo "export GOPATH=$HOME/go" >> ~/.bashrc
